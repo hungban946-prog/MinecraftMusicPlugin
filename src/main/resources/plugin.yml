@@ -1,0 +1,6 @@
+name: MinecraftMusicPlugin
+version: 1.0
+main: me.hung.music.MusicPlugin
+api-version: 1.20
+author: Hung
+description: Lobby music plugin
