@@ -6,7 +6,29 @@ npm install
 npx expo install --fix
 npx expo start
 ```
-Quét QR bằng Expo Go hoặc build APK bằng EAS.
+Quét QR bằng Expo Go.
+
+## Build APK Android
+APK có thể được build trên GitHub Actions hoặc máy đã cài Java 17 và Android SDK:
+
+```bash
+npm install
+npx expo prebuild --platform android --non-interactive
+cd android
+./gradlew assembleDebug
+```
+
+File APK nằm tại `android/app/build/outputs/apk/debug/app-debug.apk`. Repo có workflow tự build và tạo GitHub Release khi push tag dạng `v*`:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+APK trong workflow được ký bằng debug key, phù hợp cài thử; không dùng làm bản phát hành thương mại.
+
+## Website tải ứng dụng
+Trang tĩnh nằm trong thư mục `docs/` và được tự động deploy lên GitHub Pages khi cập nhật nhánh `main`. Trang sẽ có tại `https://hungban946-prog.github.io/MinecraftMusicPlugin/`. Nút tải APK sẽ hoạt động sau khi workflow tạo GitHub Release đầu tiên.
 
 ## Cấu hình API
 Trong Cài đặt, nhập Base URL, API Key và Model. App hiện dùng giao thức tương thích OpenAI Chat Completions; Base URL có thể là URL gốc (ví dụ `https://host/v1`) hoặc endpoint đầy đủ kết thúc bằng `/chat/completions`. Chưa thể xác nhận một nhà cung cấp cụ thể nếu chưa có tài liệu API của nhà cung cấp.
