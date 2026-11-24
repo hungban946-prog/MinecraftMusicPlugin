@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "AI Chat",
+    "slug": "ai-chat-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "android": { "package": "com.example.aichat" },
+    "ios": { "bundleIdentifier": "com.example.aichat" }
+  }
+}
